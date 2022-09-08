@@ -1,38 +1,191 @@
-.App {
-  text-align: center;
+body {
+  margin-bottom: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content-inner {
+  border: 1px solid black;
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
+}
+
+.todo,
+.new-task {
+  padding: 30px 45px;
+  width: 50%;
+  border-right: 1px solid black;
+}
+
+.todo {
+  border: none;
+  position: relative;
+}
+
+.new-task__title {
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 55px;
+}
+
+select,
+.react-datepicker__input-container input,
+.new-task__input input {
+  width: 100%;
+  height: 35px;
+  padding: 0 12px;
+  border: 1px solid #BDBDBD;
+  outline: none;
+  margin-bottom: 25px;
+  font-size: 14px;
+  border-radius: 4px;
+  outline: none;
+  color: black;
+}
+
+.new-task--noboder {
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+select,
+.react-datepicker__input-container input {
+  border: 1px solid black;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  display: block;
+}
+
+.new-task__des textarea {
+  width: 100%;
+  height: 128px;
+  border: 1px solid black;
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.group-date {
+  display: flex;
+  gap: 35px;
+}
+
+.group-date__due,
+.group-date__piority {
+  flex: 50;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.btn button {
+  width: 100%;
+  display: flex;
+  background-color: #5CB85C;
+  color: white;
+  font-size: 16px;
+  height: 35px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.todo-list {
+  border: 1px solid black;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  /* border-bottom: 1px solid black; */
+}
+
+.group-task {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.group-task label {
+  margin: 0;
+}
+
+.group-btn {
+  display: flex;
+  gap: 0 10px;
+}
+
+.group-btn button {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
   color: white;
+  font-size: 12px;
+  border: none;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-detail {
+  background-color: #00BCD4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-remove {
+  background-color: #D9534F;
+}
+
+.item-detail {
+  padding: 20px;
+  border-top: 1px solid black;
+  display: none;
+}
+
+.single-item {
+  /* margin-bottom: 20px; */
+}
+
+.bulk {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #E0E0E0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.bulk-txt p {
+  margin: 0;
+}
+
+.group-active {
+  display: flex;
+  gap: 0 10px;
+}
+
+.group-active button {
+  width: 100px;
+  height: 36px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
