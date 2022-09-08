@@ -1,18 +1,52 @@
 import React, { useState } from "react";
+import format from "date-fns/format";
 import './App.css';
 import DatePicker from "react-datepicker";
 
-//Initial tasks
-const tasks = [
-  { name: "task 1", des: 'Des1', dueDate: '12/6/2022', piority: 'Normal' },
-  { name: "task 2", des: 'Des2', dueDate: '12/6/2022', piority: 'Low' },
-  { name: "task 3", des: 'Des3', dueDate: '12/6/2022', piority: 'High' },
-];
 
 function App() {
-  // const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date())
 
 
+  const [dueDate, setDueDate] = useState(new Date());
+  const [tasks, setTasks] = useState([]);
+
+  const [state, setState] = useState({
+    task: '',
+    des: '',
+    dueDate: dueDate,
+    piority: 'normal',
+    inputValue: '',
+  });
+
+  const handleChange = (evt) => {
+    const value =
+      evt.target.type === "checkbox" ? evt.target.checked : evt.target.value;
+    setState({
+      ...state,
+      [evt.target.name]: value,
+    });
+  }
+
+  const onSubmit = () => {
+    // setTasks([...tasks, state]);
+    // setState({
+    //   task: '',
+    //   des: '',
+    //   dueDate: '',
+    //   piority: 'normal',
+    // })
+
+    console.log('test', state)
+  };
+
+  // handleDateChange = date => {
+  //   let selectedDateFromCalender = date.toUTCString();
+  //   this.setState({
+  //     actualStartDate: selectedDateFromCalender,
+  // })}
+
+  console.log('test', startDate)
   return (
     <div className='main-content'>
       <div className='container'>
@@ -22,24 +56,32 @@ function App() {
             <div className='new-task__input'>
               <input
                 placeholder='Add new task'
+                name='task'
+                value={state.task}
+                onChange={handleChange}
               />
             </div>
             <div className='new-task__des'>
               <label>Description</label>
-              <textarea/>
+              <textarea
+                name='des'
+                value={state.des}
+                onChange={handleChange}
+              />
             </div>
             <div className='group-date'>
               <div className='group-date__due'>
                 <label>Due Date</label>
                 <DatePicker
-                 selected={startDate}
-                 onChange={(date:Date) => setStartDate(date)}
-                 minDate={new Date()}
+                  dateFormat="dd/MM/yyyy"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  minDate={new Date()}
                 />
               </div>
               <div className='group-date__piority'>
                 <label>Piority</label>
-                <select>
+                <select name='piority' onChange={handleChange} value={state.piority}>
                   <option value="normal">normal</option>
                   <option value="low">Low</option>
                   <option  value="High">High</option>
@@ -47,7 +89,7 @@ function App() {
               </div>
             </div>
             <div className="btn">
-              <button>
+              <button onClick={onSubmit} >
                 Add
               </button>
             </div>
@@ -88,8 +130,8 @@ function App() {
                     <div className='group-date__due'>
                       <label>Due Date</label>
                       <DatePicker
-                      selected={startDate}
-                      onChange={(date:Date) => setStartDate(date)}
+                      selected={dueDate}
+                      onChange={(date:Date) => setDueDate(date)}
                       minDate={new Date()}
                       />
                     </div>
